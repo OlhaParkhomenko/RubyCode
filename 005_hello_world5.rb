@@ -1,8 +1,7 @@
 class Greeter
 
 	def hello(name = nil) 
-	 @hello = name==nil ? 'Hello world' : "Hello, #{name}!"
-	 puts @hello
+		puts "Hello, #{name ? name : "world" }!"
 	end
 
 end
