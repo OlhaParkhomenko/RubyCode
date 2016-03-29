@@ -1,8 +1,8 @@
-country = ['Ukraine', 'Canada', 'France', 'Germany', 'Spain']
-puts country
-p country
+countries = ['Ukraine', 'Canada', 'France', 'Germany', 'Spain']
+puts countries
+p countries
 number = 1
-country.each do |i|
- puts number.to_s + ' '+"#{i}"
+countries.each do |country|
+ puts "#{number} #{country}"
  number+=1
 end
