@@ -9,9 +9,4 @@ def bubble_sort(array)
     }
    break unless swapped
   end
-  p array
 end 
-
-array =Array.new(100) { |i| rand(100) }
-p array
-bubble_sort(array)
