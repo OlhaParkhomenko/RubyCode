@@ -1,7 +1,7 @@
 class Array
 
- def bubble_sort(array)
-  array2=array.dup
+ def bubble_sort
+  array2=self.dup
   loop do
     swapped = false
     0.upto(array2.length-2) {|i| 
@@ -11,11 +11,7 @@ class Array
      end 
    }
   break unless swapped
-
- p array2
-end
-
-
+  end
 end  
 
 
@@ -39,8 +35,8 @@ end
 array = Array.new(20) { rand(100) }
 p array
 
-array.bubble_sort(array)
+p array.bubble_sort
 p array
 
-puts array.bubble_sort!
+p array.bubble_sort!
 p array
