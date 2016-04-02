@@ -37,8 +37,8 @@ end
 array = Array.new(20) { rand(100) }
 p array
 
-puts bubble_sort(array)
-puts p.array
+puts Array.bubble_sort(array)
+puts p array
 
 puts array.bubble_sort!
-puts p.array
+p array
