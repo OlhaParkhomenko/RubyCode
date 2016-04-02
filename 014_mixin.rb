@@ -10,8 +10,10 @@ class Array
        swapped = true
      end 
    }
-   break unless swapped
- end
+  break unless swapped
+
+ p array2
+end
 
 
 end  
@@ -37,8 +39,8 @@ end
 array = Array.new(20) { rand(100) }
 p array
 
-puts Array.bubble_sort(array)
-puts p array
+array.bubble_sort(array)
+p array
 
 puts array.bubble_sort!
 p array
