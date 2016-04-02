@@ -8,12 +8,12 @@ class Array
       if array2[i]>array2[i+1] 
        array2[i], array2[i+1] = array2[i+1], array2[i]
        swapped = true
-     end 
-   }
-  break unless swapped
+      end 
+    }  
+   break unless swapped
   end
-end  
-
+    array2
+  end  
 
 def bubble_sort!
  loop do
@@ -22,13 +22,12 @@ def bubble_sort!
     if self[i]>self[i+1] 
      self[i], self[i+1] = self[i+1], self[i]
      swapped = true
-   end 
- }
- break unless swapped
-end 
-self
+    end 
+  }
+  break unless swapped
+ end 
+  self
 end
-
 
 end 
 
@@ -36,7 +35,6 @@ array = Array.new(20) { rand(100) }
 p array
 
 p array.bubble_sort
-p array
 
-p array.bubble_sort!
+array.bubble_sort!
 p array
