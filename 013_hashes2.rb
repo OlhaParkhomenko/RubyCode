@@ -24,7 +24,8 @@ puts "Sorted array"
 sorted = array.sort {|a, b| 
   if a[:lastname] == b[:lastname]
     a[:name] <=>b[:name]
-  else a[:lastname] <=> b[:lastname]
+  else 
+    a[:lastname] <=> b[:lastname]
   end  
 }
 
