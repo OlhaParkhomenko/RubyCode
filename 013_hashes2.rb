@@ -6,15 +6,23 @@ names =['John', 'Jake', 'Olga', 'Stas', 'Alex', 'Nina', 'Dima',
 lastnames =['Bond', 'Ivanov', 'Ivanova', 'Sidorov', 'Sidorova',
       'Shevchenko', 'Boyko', 'Melnik', 'Slon', 'Fesenko']
 
+def arrayOutput (array)
+  number = 1  
+  array.each {|i| 
+  puts "#{number} #{i[:lastname]} #{i[:name]} #{i[:age]} years old"
+  number+=1}
+end  
+
 30.times do  
     array << {name: names[rand(names.count-1)], lastname: lastnames[rand(lastnames.count-1)], 
               age: rand(10..20)} 
 end
-number = 1  
-array.each {|i| puts "#{number} #{i[:name]} #{i[:lastname]} #{i[:age]} years old"
-            number+=1}
+
+arrayOutput(array)
+
 puts "Sorted array"
-sorted = array.sort_by {|key, value| key[:lastname]}
-number = 1  
-sorted.each {|i| puts "#{number}  #{i[:name]} #{i[:lastname]} #{i[:age]} years old"
-            number+=1}
+sorted = array.sort {|key, value| 
+  key[:lastname] <=> key[:name]
+}
+
+arrayOutput(sorted)
