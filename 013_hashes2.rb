@@ -21,8 +21,11 @@ end
 arrayOutput(array)
 
 puts "Sorted array"
-sorted = array.sort {|key, value| 
-  key[:lastname] <=> key[:name]
+sorted = array.sort {|a, b| 
+  if a[:lastname] == b[:lastname]
+    a[:name] <=>b[:name]
+  else a[:lastname] <=> b[:lastname]
+  end  
 }
 
 arrayOutput(sorted)
