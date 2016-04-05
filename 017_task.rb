@@ -3,4 +3,4 @@ puts "Initial array"
 p array
 
 puts "New array"
-p array.map{|elem| elem**2}
+p array.map!{|elem| elem**2}
