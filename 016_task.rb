@@ -1,5 +1,6 @@
 def factorial(n)
   raise "Value is invalid" if n<0
+  return 1 if n==0 || n==1
   
   if n>1
     mult=1 
@@ -7,13 +8,11 @@ def factorial(n)
       mult*=i
     }
     mult
-  else 
-    return 1
   end  
 
 end
 
-puts factorial(5)
+puts factorial(4)
 puts factorial(0)
 puts factorial(1)
 begin
