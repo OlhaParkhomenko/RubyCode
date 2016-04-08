@@ -1,21 +1,23 @@
 def factorial(n)
-  if n<0 
-   return "Value is invalid"
-  end
+  raise "Value is invalid" if n<0
+  
   if n>1
     mult=1 
-    i=2
-    while i<=n do
+    2.upto (n) {|i|
       mult*=i
-      i+=1
-    end
+    }
     mult
-  else return "Value=1"
+  else 
+    return 1
   end  
 
 end
 
-puts factorial(-4)
+puts factorial(5)
 puts factorial(0)
 puts factorial(1)
-puts factorial(5)
+begin
+  puts factorial(-4)
+rescue
+  puts "Error during factorial calculation"
+end
