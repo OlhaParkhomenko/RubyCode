@@ -1,11 +1,21 @@
 class Person
 
-  attr_reader :name, :lastname, :age
-
   def initialize(name, lastname, age)
     @name=name
     @lastname=lastname
     @age=age
+  end
+
+  def name
+    @name
+  end
+
+  def lastname
+    @lastname
+  end
+
+  def age
+    @age
   end
 
   def to_s
