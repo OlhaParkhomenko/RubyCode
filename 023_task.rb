@@ -1,18 +1,18 @@
 class Runner
   def speed
-    @speed = 8.0
+    8.0
   end
 end
 
 class Sprinter < Runner
   def speed
-    @speed = super*2
+    super*2
   end
 end
 
 class Jogger < Runner
   def speed
-    @speed = super*0.75
+    super*0.75
   end
 end 
 
