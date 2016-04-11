@@ -14,6 +14,11 @@ class Shape
   def center
     raise "not implemented"
   end
+
+  def bound
+    raise "not defined"
+  end
+  
 end
 
 if __FILE__==$0 
