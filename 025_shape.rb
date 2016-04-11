@@ -16,8 +16,10 @@ class Shape
   end
 end
 
-shape1 = Shape.new
-p shape1
+if __FILE__==$0 
+  shape1 = Shape.new
+  p shape1
 
-shape2 = Shape.new(10, 20)
-p shape2
+  shape2 = Shape.new(10, 20)
+  p shape2
+end
