@@ -1,9 +1,10 @@
 require "./024_task.rb"
 
-class Shape < Point
+class Shape
+attr_accessor :position
 
-  @position = [:x, :y]
-    
+ @position = Point.new
+
   def area
     raise "not implemented"
   end
@@ -14,4 +15,3 @@ end
 
 shape = Shape.new
 p shape
-shape.area
