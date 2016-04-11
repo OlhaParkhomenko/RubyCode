@@ -17,12 +17,18 @@ class Circle < Shape
     @point = [@position.x, @position.y]
   end
 
+  def bound
+    2*@r
+  end
+
 end
 
 circle1 = Circle.new
 puts "Square = #{circle1.area}"
 puts "Center = #{circle1.center}"
+puts "Min rectangle - square with side - #{circle1.bound}"
 
 circle2 = Circle.new(20, 20, 5)
 puts "Square = #{circle2.area}"
 puts "Center = #{circle2.center}"
+puts "Min rectangle - square with side - #{circle2.bound}"
