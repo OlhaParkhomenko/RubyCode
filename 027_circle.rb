@@ -21,16 +21,19 @@ attr_accessor :x, :y, :r
     Rectangle.new(@position.x-@r, @position.y-@r, 2*@r, 2*@r)
   end
 
+  def to_s
+    puts "Square= #{area}"
+    puts "Center: x= #{center.x}, y= #{center.y}"
+    puts "Rectangle: #{bound}"
+    puts "x= #{@position.x-@r}"
+    puts "y= #{@position.y-@r}"
+    puts "width=height #{2*@r}"
+  end
+
 end
 
 circle1 = Circle.new
-puts "Square = #{circle1.area}"
-puts "Center = #{circle1.center} x= #{circle1.position.x} y= #{circle1.position.y}"
-puts "Min rectangle - #{circle1.bound} - 
-  left point = #{circle1.position.x-circle1.r}, #{circle1.position.y+circle1.r}, 
-  width = #{2*circle1.r}, height = #{2*circle1.r} "
+puts circle1
 
 circle2 = Circle.new(20, 20, 5)
-puts "Square = #{circle2.area}"
-puts "Center = #{circle2.center}"
-puts "Min rectangle - #{circle2.bound} square with side - #{2*circle2.r} "
+puts circle2
