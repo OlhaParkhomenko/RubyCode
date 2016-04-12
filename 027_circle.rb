@@ -2,7 +2,7 @@ require "./025_shape.rb"
 require "./026_rectangle.rb"
 
 class Circle < Shape
-attr_accessor :x, :y, :r
+attr_accessor :r
 
   def initialize (x=10, y=10, r=1)
     super(x, y)
@@ -22,7 +22,7 @@ attr_accessor :x, :y, :r
   end
 
   def to_s
-    "Rectangle: x= #{bound.x}, y= #{bound.y}, w= #{bound.w}, h= #{bound.h}"
+     "Circle: #{@position}, r=#{@r}"
   end
 
 end
@@ -32,5 +32,5 @@ puts "Square= #{circle1.area}"
 puts "Center: x= #{circle1.center.x}, y= #{circle1.center.y}"
 puts circle1
 
-#circle2 = Circle.new(20, 20, 5)
-#puts circle2
+circle2 = Circle.new(20, 20, 5)
+puts circle2
