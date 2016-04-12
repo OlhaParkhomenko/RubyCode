@@ -18,13 +18,17 @@ class Shape
   def bound
     raise "not defined"
   end
+
+  def to_s
+    "Shape: x=#{@position.x}, y=#{@position.y}"
+  end
   
 end
 
 if __FILE__==$0 
   shape1 = Shape.new
-  p shape1
+  puts shape1
 
   shape2 = Shape.new(10, 20)
-  p shape2
+  puts shape2
 end
