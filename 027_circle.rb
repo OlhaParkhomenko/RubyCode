@@ -22,18 +22,15 @@ attr_accessor :x, :y, :r
   end
 
   def to_s
-    puts "Square= #{area}"
-    puts "Center: x= #{center.x}, y= #{center.y}"
-    puts "Rectangle: #{bound}"
-    puts "x= #{@position.x-@r}"
-    puts "y= #{@position.y-@r}"
-    puts "width=height #{2*@r}"
+    "Rectangle: x= #{bound.x}, y= #{bound.y}, w= #{bound.w}, h= #{bound.h}"
   end
 
 end
 
 circle1 = Circle.new
+puts "Square= #{circle1.area}"
+puts "Center: x= #{circle1.center.x}, y= #{circle1.center.y}"
 puts circle1
 
-circle2 = Circle.new(20, 20, 5)
-puts circle2
+#circle2 = Circle.new(20, 20, 5)
+#puts circle2
