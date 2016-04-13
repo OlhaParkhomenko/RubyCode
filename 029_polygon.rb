@@ -13,31 +13,48 @@ class Polygon < Shape
   end
 
   def bound
-    Rectangle.new(minimumX, maximumY, maximumX - minimumX, maximumY - minimumY)
+    Rectangle.new(@minimumX, @maximumY, @maximumX - @minimumX, @maximumY - @minimumY)
   end
 
   def center
-    Point.new((maximumX - minimumX)/2 + minimumX, (maximumY - minimumY)/2 + minimumY)
+    sumX = 0
+    sumY = 0
+    @minimumX = @points[0].x
+    @minimumY = @points[0].y
+    @maximumX = @points[0].x
+    @maximumY = @points[0].y
+    
+    @points.each do |i|
+      sumX+= i.x
+      sumY+= i.y
+
+      if i.x < @minimumX
+        @minimumX = i.x
+      end
+      if i.y < @minimumY
+        @minimumY = i.y
+      end
+
+      if i.x > @maximumX
+        @maximumX = i.x
+      end
+      if i.y > @maximumY
+        @maximumY = i.y
+      end
+    end  
+
+    Point.new(sumX/@points.count, sumY/@points.count)
+  end
+
+  def area
+    1
   end
 
 
 end
 
-polygon = Polygon.new([Point.new(5, 0), Point.new(2, 2), Point.new(3, 3), Point.new(8, 1)])
+polygon = Polygon.new([Point.new(6, 0), Point.new(2, 2), Point.new(1, 5), Point.new(7, 1)])
 pp polygon
-
-arrX=[]
-arrY=[]
-polygon.points.each {|i| arrX.push(i.x)
-  arrY.push(i.y)
-}
-maximumX = arrX.max
-maximumY = arrY.max
-
-minimumX = arrX.min
-minimumY = arrY.min
-
-puts "maximumX = #{maximumX}" 
-puts "maximumY = #{maximumY}" 
-puts "minimumX = #{minimumX}"
-puts "minimumY = #{minimumY}"
+puts polygon.center
+puts polygon.bound
+puts polygon.area
