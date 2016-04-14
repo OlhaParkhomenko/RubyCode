@@ -41,26 +41,25 @@ class Polygon < Shape
   end
 
   def area
-    squareMinus = 0
-    squarePlus = 0
+    
+    square =0
+    0.upto(@points.length - 1){|i|
+      a = @points[i-1]
+      b = @points[i]
+     square += (a.y + b.y)*(b.x-a.x)
 
-    0.upto(@points.length - 2){|i|
-      if @points[i].x > @points[i+1].x
-        squareMinus += (@points[i].y + @points[i+1].y).abs / 2 * ((@points[i].x-@points[i+1].x).abs)
-      else 
-        squarePlus += (@points[i].y + @points[i+1].y).abs / 2 * ((@points[i].x-@points[i+1].x).abs)
-      end  
     } 
-     
-     puts "Square = #{squarePlus}"
+     square = (square / 2).abs
+
+     puts "Square = #{square}"
 
   end
 
 
 end
 
-polygon = Polygon.new([Point.new(6, 0), Point.new(2, 2), Point.new(1, 5), 
-  Point.new(4, 4), Point.new(5, 6)])
+polygon = Polygon.new([Point.new(6.0, 0.0), Point.new(2.0, 2.0), Point.new(1.0, 5.0), 
+  Point.new(4.0, 4.0), Point.new(5.0, 6.0)])
 pp polygon
 puts polygon.center
 puts polygon.bound
