@@ -49,7 +49,7 @@ class Polygon < Shape
      square += (a.y + b.y)*(b.x-a.x)
     } 
 
-    puts "Square = #{(square / 2).abs}"
+    (square / 2).abs
 
   end
 
