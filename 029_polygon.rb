@@ -13,34 +13,37 @@ class Polygon < Shape
   end
 
   def bound
-    Rectangle.new(@minimumX, @maximumY, @maximumX - @minimumX, @maximumY - @minimumY)
+    minimumX = @points[0].x
+    minimumY = @points[0].y
+    maximumX = @points[0].x
+    maximumY = @points[0].y
+
+    @points.each do |i|
+      if i.x < minimumX
+        minimumX = i.x
+      end
+      if i.y < minimumY
+        minimumY = i.y
+      end
+
+      if i.x > maximumX
+        maximumX = i.x
+      end
+      if i.y > maximumY
+        maximumY = i.y
+      end
+    end
+
+    Rectangle.new(minimumX, maximumY, maximumX - minimumX, maximumY - minimumY)
   end
 
   def center
     sumX = 0
     sumY = 0
-    @minimumX = @points[0].x
-    @minimumY = @points[0].y
-    @maximumX = @points[0].x
-    @maximumY = @points[0].y
-    
+   
     @points.each do |i|
       sumX+= i.x
       sumY+= i.y
-
-      if i.x < @minimumX
-        @minimumX = i.x
-      end
-      if i.y < @minimumY
-        @minimumY = i.y
-      end
-
-      if i.x > @maximumX
-        @maximumX = i.x
-      end
-      if i.y > @maximumY
-        @maximumY = i.y
-      end
     end  
 
     Point.new(sumX/@points.count, sumY/@points.count)
