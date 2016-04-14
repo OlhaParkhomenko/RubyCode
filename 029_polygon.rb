@@ -47,19 +47,18 @@ class Polygon < Shape
       a = @points[i-1]
       b = @points[i]
      square += (a.y + b.y)*(b.x-a.x)
-
     } 
-     square = (square / 2).abs
 
+     square = (square / 2).abs
      puts "Square = #{square}"
 
   end
-
 
 end
 
 polygon = Polygon.new([Point.new(6.0, 0.0), Point.new(2.0, 2.0), Point.new(1.0, 5.0), 
   Point.new(4.0, 4.0), Point.new(5.0, 6.0)])
+
 pp polygon
 puts polygon.center
 puts polygon.bound
