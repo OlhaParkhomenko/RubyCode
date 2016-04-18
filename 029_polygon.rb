@@ -58,7 +58,9 @@ end
 polygon = Polygon.new([Point.new(6.0, 0.0), Point.new(2.0, 2.0), Point.new(1.0, 5.0), 
   Point.new(4.0, 4.0), Point.new(5.0, 6.0)])
 
-pp polygon
-puts polygon.center
-puts polygon.bound
-puts polygon.area
+if __FILE__ == $0 
+  pp polygon
+  puts polygon.center
+  puts polygon.bound
+  puts polygon.area
+end
