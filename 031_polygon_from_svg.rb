@@ -4,30 +4,31 @@ require "./030_2_file.rb"
 
 class Polygon
 
-  def self.polygon_from_svg_path_elements (array)
+  def self.polygon_from_svg_path_elements(array)
     @points=[]
     array.each{|step|
       case step[0]
         when 'M'
-          @points << Point.point_from_string(step, 1)
+          @points << Point.point_from_string(step[1])
         when 'L'
-          @points << Point.point_from_string(step, 1)
+          @points << Point.point_from_string(step[1])
         when 'C'
-          @points << Point.point_from_string(step, 3)
+          @points << Point.point_from_string(step[3])
       end
     }
-    @points
+    p @points
   end  
 
 end
 
 class Point
-  def self.point_from_string(array, str)
-    @x, @y = array[str].split(',').map do
+  def self.point_from_string(str)
+    @x, @y = str.split(',').map do
       |c| c.to_f
     end
   end
+  Point.new(@x, @y)
 end
 
 array = read_path_from_svg("pyf.svg")
-p Polygon.polygon_from_svg_path_elements(array)
+Polygon.polygon_from_svg_path_elements(array)
