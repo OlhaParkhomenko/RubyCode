@@ -4,9 +4,8 @@ require "./031_polygon_from_svg.rb"
 class Polygon
 
   def self.polygon_from_svg_path_str(string)
-    array = string.scan(/([A-Z]\s[\d,.\s]+)\s/).flatten.map{|i| i.strip.split(" ")} 
-    p string.class
-    p Polygon.polygon_from_svg_path_elements(array)
+    array = string.scan(/([A-Z]\s[\d,.\s]+)/).flatten.map{|i| i.strip.split(" ")} 
+    Polygon.polygon_from_svg_path_elements(array)
   end
   
 end
