@@ -5,7 +5,6 @@ require "./030_2_file.rb"
 class Polygon
 
   def self.polygon_from_svg_path_elements(array)
-
     Polygon.new(array.map {|step|
       case step[0]
         when 'M'
@@ -29,5 +28,7 @@ class Point
   
 end
 
-array = read_path_from_svg("pyf.svg")
-p Polygon.polygon_from_svg_path_elements(array)
+if __FILE__==$0
+  array = read_path_from_svg("pyf.svg")
+  p Polygon.polygon_from_svg_path_elements(array)
+end
