@@ -4,13 +4,13 @@ module Morze
     "F" => "..-.", "G" => "--.", "H" => "....", "I" => "..", "J" => ".---", "K" => "-.-", 
     "L" => ".-..", "M" => "--", "N" => "-.", "O" => "---", "P" => ".--.", "Q" => "--.-", 
     "R" => ".-.", "S" => "...", "T" => "-", "U" => "..-", "V" => "...-", "W" => ".--", 
-    "X" => "-..-", "Y" => "-.--", "Z" => "--.."
+    "X" => "-..-", "Y" => "-.--", "Z" => "--..", " " => "       "
   }
   
   @@table_english = @@table_morze.invert
   
   def Morze.encode(str)
-    str.upcase.chars.map{|ch| puts @@table_morze[ch]? @@table_morze[ch] : ch }.join
+    str.upcase.chars.map { |ch| @@table_morze[ch]? @@table_morze[ch] : ch }.join
   end
 
   def Morze.decode(text_string)
@@ -27,5 +27,5 @@ module Morze
 
 end
 
-#morze_encoded = Morze::encode("English is language")
-morze_decoded = Morze::decode(". -.  --.  .-.. ..  ... ....      ..  ...      .-.. .- -. --. ..- .-  --. .")
+morze_encoded = Morze::encode("English is language")
+#morze_decoded = Morze::decode(morze_encoded)
