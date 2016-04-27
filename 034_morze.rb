@@ -1,4 +1,4 @@
-module Transformation
+module Morze
   
   @@table_morze = {"A" => ".-", "B" =>"-..." , "C" => "-.-.", "D" => "-..", "E" => ".", 
     "F" => "..-.", "G" => "--.", "H" => "....", "I" => "..", "J" => ".---", "K" => "-.-", 
@@ -9,30 +9,23 @@ module Transformation
   
   @@table_english = @@table_morze.invert
   
-  def transformation_eng_morze(str)
-    
+  def Morze.encode(str)
     str.upcase.chars.map{|ch| puts @@table_morze[ch]? @@table_morze[ch] : ch }.join
-     
   end
 
-  def transformation_morze_eng(array)
-    raise ("Invalid data") unless array.class == Array 
-  
-    p @@table_english
-    array.map{|elem| puts @@table_english[elem]}.join
+  def Morze.decode(text_string)
+    puts "ERROR!" unless text_string.class == String 
+    p array_string = text_string.split("     ").join("/").split("  ").join("")
+    #array_string.each_index{|i|
+    #  if array_string[i] == /[A-Z]/ 
+    #    p array_string[i]
+    #  end  
+
+    #}
 
   end
 
 end
 
-
-class Morze
-
-  include Transformation
-  
-end
-
-
-morze = Morze.new
-morze.transformation_eng_morze("English is language")
-morze.transformation_morze_eng([".-.", "..-", "-...", "-.--"])
+#morze_encoded = Morze::encode("English is language")
+morze_decoded = Morze::decode(". -.  --.  .-.. ..  ... ....      ..  ...      .-.. .- -. --. ..- .-  --. .")
