@@ -1,31 +1,41 @@
-module Morze
+module Morse
   
-  @@table_morze = {"A" => ".-", "B" =>"-..." , "C" => "-.-.", "D" => "-..", "E" => ".", 
+  @@table_morse = {"A" => ".-", "B" =>"-..." , "C" => "-.-.", "D" => "-..", "E" => ".", 
     "F" => "..-.", "G" => "--.", "H" => "....", "I" => "..", "J" => ".---", "K" => "-.-", 
     "L" => ".-..", "M" => "--", "N" => "-.", "O" => "---", "P" => ".--.", "Q" => "--.-", 
     "R" => ".-.", "S" => "...", "T" => "-", "U" => "..-", "V" => "...-", "W" => ".--", 
-    "X" => "-..-", "Y" => "-.--", "Z" => "--..", " " => "       "
+    "X" => "-..-", "Y" => "-.--", "Z" => "--..",
   }
   
-  @@table_english = @@table_morze.invert
+  @@table_english = @@table_morse.invert
   
-  def Morze.encode(str)
-    str.upcase.chars.map { |ch| @@table_morze[ch]? @@table_morze[ch] : ch }.join
+  def Morse.encode(str)
+
+    input = str.upcase.chars.map { |ch| @@table_morse[ch]? @@table_morse[ch]+'  ' : 
+      ch==" "? ch+'      ': ch }.join
+      
   end
 
-  def Morze.decode(text_string)
-    puts "ERROR!" unless text_string.class == String 
-    p array_string = text_string.split("     ").join("/").split("  ").join("")
-    #array_string.each_index{|i|
-    #  if array_string[i] == /[A-Z]/ 
-    #    p array_string[i]
-    #  end  
+  def Morse.decode(text_string)
 
-    #}
+    puts "ERROR!" unless text_string.class == String 
+    array_string = text_string.split(/\s{6,}/)
+    array_string.each {|elem|
+      elem.split(/\s{1,2}/).map { |ch| @@table_english[ch]? @@table_english[ch] : ch}.join("")
+    }.join("       ")
 
   end
 
 end
 
-morze_encoded = Morze::encode("English is language")
-#morze_decoded = Morze::decode(morze_encoded)
+test_string = "Bla blabla"
+morse_string = Morse.encode(test_string)
+puts "Morse-encoded string: #{morse_string}"
+decoded_from_morse_string = Morse.decode(morse_string)
+puts "decoded from morse string: #{decoded_from_morse_string}"
+
+if test_string.upcase==decoded_from_morse_string
+  puts "Everything OK"
+else
+  puts "Errrorrrrr!!!! initial string and resulting string are not equal!!!"
+end
