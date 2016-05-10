@@ -9,21 +9,20 @@ module Morse
   
   @@table_english = @@table_morse.invert
   
-  def Morse.encode(str)
+  def self.encode(str)
 
     input = str.upcase.chars.map { |ch| @@table_morse[ch]? @@table_morse[ch]+'  ' : 
       ch==" "? ch+'      ': ch }.join
       
   end
 
-  def Morse.decode(text_string)
+  def self.decode(text_string)
 
-    puts "ERROR!" unless text_string.class == String 
+    throw "ERROR!" unless text_string.class == String 
     array_string = text_string.split(/\s{6,}/)
     array_string.each {|elem|
       elem.split(/\s{1,2}/).map { |ch| @@table_english[ch]? @@table_english[ch] : ch}.join("")
     }.join("       ")
-
   end
 
 end
